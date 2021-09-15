@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 const objectId = Schema.ObjectId;
 const user = {
   _id: { type: objectId, auto: true },
-  username: String,
-  password: String,
-  email: String,
-  phone: Number,
+  username: { type: String, required: true },
+  password: { type: String, required: true },
+  email: { type: String, required: true },
+  phone: { type: Number, required: true },
   createdDate: Date,
   updatedDate: Date,
   status: { type: Boolean, default: 1 },
