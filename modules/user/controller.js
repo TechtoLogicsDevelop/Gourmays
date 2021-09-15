@@ -47,7 +47,8 @@ router.post("/login", (req, res) => {
 });
 
 router.post("/signup", userMiddleware.checkExestingUser, (req, res) => {
-  let model = new User.Auth(req.body);
+  const { username, email, phone, password } = req.body
+  let model = new User.Auth(username, email, phone, password);
   // model.password = jwt.sign(obj.password, 'shhhhh');
   model.save((err, user) => {
     if (err) {
